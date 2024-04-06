@@ -221,6 +221,8 @@ ${terragrunt_output}
   echo "tg_action_output=${tg_action_output}" >> "${GITHUB_OUTPUT}"
 
   echo "tg_output=$(terragrunt output -${tg_output_format})" >> "${GITHUB_OUTPUT}"
+  
+  terragrunt output -${tg_output_format}
 
   exit $exit_code
 }

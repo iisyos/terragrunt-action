@@ -224,6 +224,12 @@ ${terragrunt_output}
   
   terragrunt output -${tg_output_format}
 
+  pwd
+
+  ls -la
+
+  terragrunt plan
+
   exit $exit_code
 }
 

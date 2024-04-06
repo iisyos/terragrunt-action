@@ -220,6 +220,7 @@ ${terragrunt_output}
   tg_action_output=$(clean_multiline_text "${terragrunt_output}")
   echo "tg_action_output=${tg_action_output}" >> "${GITHUB_OUTPUT}"
   echo "tg_output=$(terraform output -json)" >> "${GITHUB_OUTPUT}"
+  terraform output -json
 }
 
 main "$@"

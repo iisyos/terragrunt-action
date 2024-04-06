@@ -220,16 +220,7 @@ ${terragrunt_output}
   tg_action_output=$(clean_multiline_text "${terragrunt_output}")
   echo "tg_action_output=${tg_action_output}" >> "${GITHUB_OUTPUT}"
 
-  echo "tg_output=$(terragrunt output -${tg_output_format})" >> "${GITHUB_OUTPUT}"
-  
-  terragrunt output -${tg_output_format}
-
-  pwd
-
-  ls -la
-
-  terragrunt plan
-
+  echo "tg_output='$(terragrunt output -${tg_output_format})'" >> "${GITHUB_OUTPUT}"
   exit $exit_code
 }
 

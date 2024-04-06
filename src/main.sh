@@ -219,8 +219,8 @@ ${terragrunt_output}
   local tg_action_output
   tg_action_output=$(clean_multiline_text "${terragrunt_output}")
   echo "tg_action_output=${tg_action_output}" >> "${GITHUB_OUTPUT}"
-  echo "tg_output=$(terragrunt output -json)" >> "${GITHUB_OUTPUT}"
-  terragrunt output -json
+  echo "tg_output=aaa" >> "${GITHUB_OUTPUT}"
+  # terragrunt output -json
 }
 
 main "$@"

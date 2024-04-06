@@ -219,10 +219,7 @@ ${terragrunt_output}
   local tg_action_output
   tg_action_output=$(clean_multiline_text "${terragrunt_output}")
   echo "tg_action_output=${tg_action_output}" >> "${GITHUB_OUTPUT}"
-
-  local tg_output
-  tg_output=$(terragrunt output -"${tg_output_format}" 2>/dev/null | jq -R -s . | jq -r .)
-  echo "tg_output=${tg_output}" >> "${GITHUB_OUTPUT}"
+  echo "tg_output=$(terraform output -json)" >> "${GITHUB_OUTPUT}"
 }
 
 main "$@"

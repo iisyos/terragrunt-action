@@ -141,6 +141,7 @@ function main {
   local -r tf_version=${INPUT_TF_VERSION}
   local -r tg_version=${INPUT_TG_VERSION}
   local -r tg_command=${INPUT_TG_COMMAND}
+  local -r tg_output_format=${INPUT_TG_OUTPUT_FORMAT:-json}
   local -r tg_comment=${INPUT_TG_COMMENT:-0}
   local -r tg_add_approve=${INPUT_TG_ADD_APPROVE:-1}
   local -r tg_dir=${INPUT_TG_DIR:-.}
@@ -218,9 +219,8 @@ ${terragrunt_output}
   local tg_action_output
   tg_action_output=$(clean_multiline_text "${terragrunt_output}")
   echo "tg_action_output=${tg_action_output}" >> "${GITHUB_OUTPUT}"
-  log GITHUB_OUTPUT
-  log ${GITHUB_OUTPUT}
-  log $tg_action_output
+
+  echo "tg_output=&(terragrunt output -${tg_output_format})" >> "${GITHUB_OUTPUT}"
 
   exit $exit_code
 }
